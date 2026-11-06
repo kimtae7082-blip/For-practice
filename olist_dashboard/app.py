@@ -2,8 +2,11 @@
 페이지를 등록하면 왼쪽에 메뉴가 생깁니다.
 """
 import streamlit as st
+from utils.theme import apply_theme
 
 st.set_page_config(page_title="Olist 대시보드", page_icon="📦", layout="wide")
+
+apply_theme()
 
 page = st.navigation({
     "소개": [

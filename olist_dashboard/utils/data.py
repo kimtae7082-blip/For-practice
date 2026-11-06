@@ -71,7 +71,7 @@ def chart_monthly(od, metric):
 def chart_time(od):
     days = ["월", "화", "수", "목", "금", "토", "일"]
     t = od.groupby([od["주문시각"].dt.day_of_week, od["주문시각"].dt.hour]).size().unstack(fill_value=0)
-    fig = px.imshow(t, y=[days[i] for i in t.index], color_continuous_scale="Blues",
+    fig = px.imshow(t, y=[days[i] for i in t.index], color_continuous_scale=["#FAF8F1", "#FAEAB1", "#34656D"],
                     labels={"x": "시간", "y": "요일", "color": "주문 수"}, title="요일 × 시간대 주문 수")
     day_share = od["주문시각"].dt.hour.between(10, 16).mean()
     return fig, f"낮 10~16시 주문이 **{day_share:.1%}** → 광고는 평일 낮에, 서버 점검은 새벽에"

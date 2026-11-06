@@ -32,23 +32,23 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["📈 매출 추이", "🕒 주문
 with tab1:
     metric = st.radio("지표", ["매출", "주문 수", "객단가"], horizontal=True)
     fig, msg = chart_monthly(od, metric)
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, theme=None, use_container_width=True)
     st.info(msg)
 with tab2:
     fig, msg = chart_time(od)
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, theme=None, use_container_width=True)
     st.info(msg)
 with tab3:
     fig, msg = chart_category(it)
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, theme=None, use_container_width=True)
     st.info(msg)
 with tab4:
     fig, msg = chart_delivery(od)
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, theme=None, use_container_width=True)
     st.info(msg)
 with tab5:
     fig, msg = chart_region(od)
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, theme=None, use_container_width=True)
     st.info(msg)
 with tab6:
     st.dataframe(od.head(100))
